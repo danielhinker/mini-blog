@@ -2,7 +2,6 @@ import React from 'react';
 import PostCreate from './PostCreate';
 import PostList from './PostList';
 
-// eslint-disable-next-line
 export default () => {
     return (
         <div className="container">
