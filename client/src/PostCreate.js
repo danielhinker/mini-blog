@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Main = () => {
+export default () => {
     const [title, setTitle] = useState('');
 
     const onSubmit = async (event) => {
@@ -26,4 +26,3 @@ const Main = () => {
     </div>);
 };
 
-export default Main;
