@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: |
+            client/package-lock.json
+            comments/package-lock.json
+            posts/package-lock.json
+
+      - run: npm install
+        working-directory: client
+
+      - run: npm run build
+        working-directory: client
+
+      - run: npm install
+        working-directory: comments
+
+      - run: npm install
+        working-directory: posts
